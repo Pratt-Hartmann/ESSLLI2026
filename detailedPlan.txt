@@ -1,0 +1,92 @@
+Day 1
+-----
+
+Lecture 1 (IEP): Introduction
+
+The decision problem. Hilbert Ackermann Church, Turing, Trakhtenbrot.
+An example.
+Defintiions of (finite) validity and (finite) satisfiability; duality.
+Recursively enumerable and co-recursively enumerable.
+Fragments of FO. The classification problem.
+Definitions of Sat(\cL) and FinSat(\cL).
+Finite model property and decidability.
+Complexity.
+Preview.
+
+
+Lecture 2 (BB): Curently planned to be the 1-variable fragment.
+
+Maybe we can include the monadic fragment. This is a nice illustration
+of the idea of small models. (Maybe even the lower bound proof.)
+
+
+Day 2
+
+Lecture 3 (IEP): The two-variable fragment
+
+Scott normal form and re-writing.
+The small model property and upper complexity bound
+
+
+Lecture 3 (BB): The lower bound for the two-variable fragment
+
+Tilings.
+The proof.
+
+
+Day 3
+
+Lecture 5 (IEP): The Goedel fragment
+
+Prenex form and quantifier prefixe fragments.
+The standard prefix clases and effective closure under conjunciton 
+The Bernays-Schoenfinkel fragment
+The Goedel fragment upper complexity bound (using Kalmar's argument.
+Historical notes and relation to the two-variable fragment.
+
+Lecture 6 (BB): The guarded fragment
+
+Normal forms 
+The basic decision procedure
+Upper complexity bounds
+The finite model property (summary of approaches).
+
+
+Day 4
+
+Lecture 7 (BB) Counting quantifiers.
+
+Basic definitions
+The one-variable fragment with counting.
+Linear Diophantine equations.
+The one-variable fragment with counting:
+   Normal forms
+   The idea of statistical characterizations of structures.
+   Complexity analysis.
+
+Lecture 8 (IEP) The two-variable fragment with counting 
+
+Scott normal form.
+Rays and star-types.
+Chromaticity and differentiation.
+The upper complexity bound (sketch proof)
+
+Day 5
+
+
+Lecture 9 (BB): Something or other.
+
+
+Lecture 10: Variable-ordering fragments
+
+Index-normal formulas and variable-ordering fragments.
+The ordered fragment.
+The fluted fragment (history)
+Fluted types.
+The upper complexity bound for the fluted fragment.
+The fluted fragment is non-eleentary (detailed proof omitted)
+The adjacent fragment (without proofs).
+Extensions with counting.
+
+
+

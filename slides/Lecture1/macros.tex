@@ -1,0 +1,702 @@
+% Macros for book---movie version
+
+\newcommand{\ignore}[1]{}
+
+
+% General formatting
+
+\newcommand{\cbl}[1]{\color{blue}#1\color{black}{}}
+\newcommand{\cbr}[1]{\color{red}#1\color{black}{}}
+
+\newenvironment{absolutelynopagebreak}
+{\par\nobreak\vfil\penalty0\vfilneg
+	\vtop\bgroup}
+{\par\xdef\tpd{\the\prevdepth}\egroup
+	\prevdepth=\tpd}
+
+% Theorem environments
+
+
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{CTthesis*}{Church-Turing Thesis}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{remark}[theorem]{Remark}
+\theoremstyle{definition}
+% \newtheorem{definition}{Definition} % Definitions deprecated. Added temporarily for Ch 10
+% \newtheorem{exercise}{Exercise}[chapter]
+
+% General bold letters
+\newcommand{\bA}{\ensuremath{\mathbf{A}}} % Sets of blocks (Ch 12) // Matrices Ch 11
+\newcommand{\bB}{\ensuremath{\mathbf{B}}} % Sets of blocks (Ch 12)
+\newcommand{\bC}{\ensuremath{\mathbf{C}}} % Structure
+\newcommand{\bD}{\mathbf{D}}% collections of edges
+\newcommand{\bE}{\mathbf{E}}% collections of edges
+\newcommand{\bF}{\mathbf{F}}% Matrices rhs Ch 12; Sets of graphs Ch 8
+\newcommand{\bG}{\mathbf{G}}% Sets of graphs Ch 8
+\newcommand{\bI}{\mathbf{I}}% collections of edges // Indentity matrix Ch 11
+\newcommand{\bL}{\mathbf{L}}% collections of edges
+\newcommand{\bM}{\mathbf{M}}% Minsky machine Ch 11
+\newcommand{\bN}{\mathbf{N}}% Big number (size of shrubbery)   Ch:tre (really want?)
+\newcommand{\bO}{\mathbf{O}}% collections of objects
+\newcommand{\bP}{\mathbf{P}}% set of functions  Ch 10
+\newcommand{\bR}{\mathbf{R}}% set of functions  Ch 10
+\newcommand{\bT}{\mathbf{T}}% Map from cosmic spectrum to symmetrized cosmic spectrum
+\newcommand{\bU}{\mathbf{U}}% collections of left-vertices//Map from profile to galactic spectrum Ch 11
+\newcommand{\bV}{\mathbf{V}}% Map from profile to cosmic spectrum Ch11
+\newcommand{\bW}{\mathbf{W}}% set of contsant vectors   Ch 11
+\newcommand{\bZ}{\mathbf{Z}}% Big number (no of 2-types)     Ch:tre (really want?)
+
+
+\newcommand{\ba}{\mathbf{a}}% vectors on right-hand sides of equations                 All Ch 11: CtE. Constants are in bold
+\newcommand{\bb}{\mathbf{b}}% constant vectors in equations
+\newcommand{\bff}{\mathbf{f}}% constant vectors on left-hand sides of equations
+\newcommand{\bg}{\mathbf{g}}% constant vectors on right-hand sides of equations
+\newcommand{\bc}{\mathbf{c}}% vectors on right-hand sides of equations
+\newcommand{\bo}{\mathbf{o}}% constants for galactic constraints
+\newcommand{\bp}{\mathbf{p}}% constants for galactic constraints Ch 11 // collection of functions Ch 10
+\newcommand{\bq}{\mathbf{q}}% constants for galactic constraints
+\newcommand{\br}{\mathbf{r}}% collection of functions Ch 10
+\newcommand{\bt}{\mathbf{t}}% for symmetrized c-profiles of constant solution vectors
+\newcommand{\bu}{\mathbf{u}}% for c-profiles of constant solution vectors
+\newcommand{\bv}{\mathbf{v}}% for c-profiles of constant solution vectors
+\newcommand{\bw}{\mathbf{w}}% for constant solution vectors (in Hilbert bases)
+
+
+% General caligraphic letters
+\newcommand{\cA}{\ensuremath{\mathcal{A}}}  % Set of atomic constraints Ch11 CtE//
+\newcommand{\cB}{\ensuremath{\mathcal{B}}}  % Sets of index-set constraints Ch11 CtE//
+\newcommand{\cC}{\ensuremath{\mathcal{C}}}  % Set of constraints Ch11 CtE//
+\newcommand{\cD}{\ensuremath{\mathcal{D}}}  % Sets of definitional constraints Ch 11 CtE//
+\newcommand{\cE}{\ensuremath{\mathcal{E}}}  % System of equations or diophantine clauses
+\newcommand{\cF}{\ensuremath{\mathcal{F}}}  % System of equations or diophantine clauses; in ch:fot, a bisimulation (set of p.i's) 
+\newcommand{\cG}{\mathcal{G}}				% map from indices of 1-types to indices of special eq cls Ch 11 CtE
+\newcommand{\cH}{\ensuremath{\mathcal{H}}}  % Hilbert basis (of system of equations)
+\newcommand{\cI}{\ensuremath{\mathcal{I}}}  % list of uniquely realized 1-types Ch 11 CtE
+\newcommand{\cK}{\ensuremath{\mathcal{K}}}  % set of frame classes (ch:mod)
+\newcommand{\cL}{\ensuremath{\mathcal{L}}}  % Logic (set of formulas) 
+\newcommand{\cO}{\mathcal{O}}				% Conditions on clusters Ch11 CtE
+\newcommand{\cP}{\ensuremath{\mathcal{P}}}  % GE Problem instance (Ch10)
+\newcommand{\cQ}{\ensuremath{\mathcal{Q}}}  % PDGE Problem instance (Ch10)//System of equations or diophantine clauses Ch 11 CtE
+\newcommand{\cT}{\mathcal{T}}               % Tiling system (Ch10)
+\newcommand{\cU}{\mathcal{U}}               % Uniform 1-variable clause set. (Ch4) Should this be a logicky macro?
+
+
+
+% General fraktur letters
+\newcommand{\fA}{\ensuremath{\mathfrak{A}}} % Structure
+\newcommand{\fB}{\ensuremath{\mathfrak{B}}} % Structure
+\newcommand{\fC}{\ensuremath{\mathfrak{C}}} % Structure// certificate Ch 11 CtE//
+\newcommand{\fD}{\ensuremath{\mathfrak{D}}} % Structure (Often equivalence classes)
+\newcommand{\fE}{\ensuremath{\mathfrak{E}}} % Structure (used in ch:gcq because running out of letters)
+\newcommand{\fG}{\ensuremath{\mathfrak{G}}} % Grid-like structure
+\newcommand{\fH}{\ensuremath{\mathfrak{H}}} % Grid-like structure (Ch fot okay?)
+\newcommand{\fI}{\ensuremath{\mathfrak{I}}} % Intersections of Eq classes (as structures)
+\newcommand{\fK}{\ensuremath{\mathfrak{K}}} % Class based on set of king connector types (Ch:flu)
+\newcommand{\fM}{\ensuremath{\mathfrak{M}}} % Kripke Structure Ch syl, particular use) Want this?()
+\newcommand{\fS}{\ensuremath{\mathfrak{S}}} % Very particular structure
+\newcommand{\fF}{\ensuremath{\mathfrak{F}}} % Frame  
+\newcommand{\fT}{\ensuremath{\mathfrak{T}}} % Structure which is a tree
+\newcommand{\fV}{\ensuremath{\mathfrak{V}}} % Structure in modal logic (ch:mod)
+\newcommand{\fW}{\ensuremath{\mathfrak{W}}} % Structure in modal logic (ch:mod)
+\newcommand{\fX}{\ensuremath{\mathfrak{X}}} % Structure in proof of Goedel fragment (ch:qpf)
+
+
+\newcommand{\fb}{\mathfrak{b}}% index range function Ch 11 CtE//
+\newcommand{\fc}{\mathfrak{c}}% index range function Ch 11 CtE; connector ch:flu//
+\newcommand{\fd}{\mathfrak{d}}% connector ch:flu; distinguished tree predicate ch:tre//
+\newcommand{\fe}{\ensuremath{\mathfrak{e}}} % distinguished equivalence predicate
+\newcommand{\fh}{\mathfrak{h}}% index function Ch 11 CtE//
+\newcommand{\fp}{\mathfrak{p}}% index function Ch 11 CtE//
+\newcommand{\fr}{\mathfrak{r}}% predicate for roots Cch:tre//
+\newcommand{\fs}{\mathfrak{s}}% index function Ch 11 CtE//
+\newcommand{\ft}{\ensuremath{\mathfrak{t}}} % distinguished transitive predicate C12 FOtTo// rather silly vector Ch 11 CtE//
+\newcommand{\fx}{\mathfrak{x}}% index limit Ch 11 CtE//
+\newcommand{\fy}{\mathfrak{y}}% index function Ch 11 CtE//
+\newcommand{\fz}{\mathfrak{z}}% index function Ch 11 CtE//
+
+% General blackboard letters
+\newcommand{\bbB}{\ensuremath{\mathbb{B}}} % Blocks (for partial orders), Ch 12// collections of equivalence classes Ch11 CtE//
+\newcommand{\bbC}{\mathbb{C}}% collections of equivalence classes (clusters) Ch11 CtE//
+\newcommand{\bbD}{\mathbb{D}}% collections of equivalence classes (super-clusters) Ch11 CtE//
+\newcommand{\bbE}{\mathbb{E}}% collections of equivalence classes (hyper-clusters) Ch11 CtE//
+\newcommand{\bbF}{\mathbb{F}}% collections of graphs Ch8 gcq//
+\newcommand{\bbS}{\mathbb{S}}% set of indices s(j). Ch11 CtE//
+
+% General sans serif letters
+\newcommand{\ssfX}{{\sf X}}  % Set of rules: ch:syl
+\newcommand{\ssfR}{{\sf R}}  % Set of rules for R: ch:syl
+\newcommand{\ssfS}{{\sf S}}  % Set of rules for S: ch:syl
+\newcommand{\ssfRd}{{\sf R}^+}  % Set of rules for R-dagger: ch:syl
+\newcommand{\ssfSd}{{\sf S}^+}  % Set of rules for S-dagger: ch:syl
+
+
+% Arithmetic
+\newcommand{\N}{\ensuremath{\mathbb{N}}} % Natural numbers
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}} % Rational numbers
+\newcommand{\R}{\ensuremath{\mathbb{R}}} % Real numbers
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}} % Integers
+\newcommand{\fl}[1]{\lfloor #1 \rfloor}  % round down
+\newcommand{\cl}[1]{\lceil #1 \rceil}    % round up
+
+% Set theory
+\newcommand{\bbP}{\ensuremath{\mathbb{P}}}  % Powerset
+\newcommand{\set}[1]{\ensuremath{\{ #1 \}}} % Notation for sets
+\newcommand{\tuple}[1]{\langle#1\rangle}    % Notation for tuples
+\newcommand{\sizeof}[1]{|\!|#1|\!|}         % Size
+\newcommand{\esizeof}[1]{\#(#1)}            % Effective size (of a formula)
+
+
+% Formulas as syntax
+
+\newcommand{\vars}{\ensuremath{\mbox{\rm vars}}}  % free variables of a formula (ch_gfk).
+
+
+% Model theory
+
+\newcommand{\Th}{\ensuremath{\mbox{\rm Th}}}          % Theory (ch:int) Do we really want this?
+\newcommand{\tp}{\ensuremath{\mbox{\rm tp}}}          % 1- or 2-type
+\newcommand{\elDiag}{\ensuremath{\mbox{\rm elDiag}}}  % elementary diagram Ch:fot
+
+\newcommand{\tpSource}{\ensuremath{\mbox{\rm tp}_1}}  % source 1-type
+\newcommand{\tpTarg}{\ensuremath{\mbox{\rm tp}_2}}    % target 1-type
+\newcommand{\hist}{\ensuremath{\mbox{\rm hist}}}      % histogram for unary structs ch:lin
+\newcommand{\Hist}{\ensuremath{\mbox{\rm Hist}}}      % histogram for binary structs ch:cot and beyond
+\newcommand{\etp}{\ensuremath{\mbox{\rm etp}}}        % e-type (used in ch:syl) maybe also elementary type used in ch:fot and ch:gfk?????
+
+\newcommand{\tl}{\ensuremath{\mbox{\rm tl}}}          % tally
+\newcommand{\scr}{\ensuremath{\mbox{\rm sc}}}          % score
+
+\newcommand{\st}{\ensuremath{\mbox{\rm st}}}          % star-type ch:cot
+\newcommand{\ist}{\ensuremath{\hat{\mbox{\rm st}}}}         % intrinsic star-type ch:cot
+\newcommand{\itp}{\ensuremath{\hat{\mbox{\rm tp}}}}        % intrinsic 1-type ch:cot
+\newcommand{\gst}{\ensuremath{\mbox{st}_{\star}}}    % galactic star-type ch:cte
+\newcommand{\igst}{\ensuremath{\hat{\mbox{st}}_{\star}}}  % intrinstic galactic star-type
+%\newcommand{\cst}{\ensuremath{\mbox{cst}}}    % cosmic star-type
+%\newcommand{\sst}{\ensuremath{\mbox{sst}}}    % symmetrized star-type
+\newcommand{\pr}{\ensuremath{\mbox{pr}}}     % profile ch:cot, ch:coe//
+\newcommand{\ipr}{\ensuremath{\hat{\mbox{pr}}}}     % intrinsic profile ch:cot, ch:coe//
+\newcommand{\csp}{\ensuremath{\mbox{cs}}}    % galactic spectrum Ch11 CtE//
+\newcommand{\icsp}{\ensuremath{\hat{\mbox{cs}}}}    % galactic spectrum Ch11 CtE//
+
+%\newcommand{\gsp}{\ensuremath{\mbox{gs}}}    % cosmic spectrum Ch11 CtE//
+%\newcommand{\ssp}{\ensuremath{\mbox{ss}}}    % symmetrized spectrum Ch11 CtE//
+
+
+\newcommand{\restr}{\!\!\restriction\!\!}
+
+\newcommand{\pdesc}{\ensuremath{\mbox{\rm Pdesc}}}  %descendent types (ch:tre)
+\newcommand{\ganc}{\ensuremath{\mbox{\rm Ganc}}}  %great-ancestor types (ch:tre)
+\newcommand{\chr}{\ensuremath{\mbox{\rm chr}}}  %great-ancestor types (ch:tre)
+\newcommand{\nav}{\ensuremath{\mbox{\rm nav}}}  %great-ancestor types (ch:tre)
+
+
+\newcommand{\Cert}{\ensuremath{\mbox{\rm Cert}}}      %  certificates for \FL3-structures.
+
+% Frame classes (ch:mod)
+
+\newcommand{\Rfl}{\ensuremath{\mathrm{Rfl}}}
+\newcommand{\Ser}{\ensuremath{\mathrm{Ser}}}
+\newcommand{\Sym}{\ensuremath{\mathrm{Sym}}}
+\newcommand{\Tr}{\ensuremath{\mathrm{Tr}}}
+\newcommand{\Eucl}{\ensuremath{\mathrm{Eucl}}}
+
+
+% Logics
+\newcommand{\sS}{\ensuremath{\mathcal{S}}}  % Classical syllogistic ch:syl
+\newcommand{\sSd}{\ensuremath{\mathcal{S}^+}}  % extended Cl. syllogistic ch:syl
+\newcommand{\sR}{\ensuremath{\mathcal{R}}}  % relational syllogistic ch:syl
+\newcommand{\sRd}{\ensuremath{\mathcal{R}^+}}  % extended relational syllogistic ch:syl
+\newcommand{\sN}{\ensuremath{\mathcal{N}}}  % Numerical syllogistic (Ch: cot)
+\newcommand{\sNd}{\ensuremath{\mathcal{N}^+}}  % Extended numerical syllogistic (currently unused)
+
+\newcommand{\FO}{\ensuremath{\mathcal{FO}}}  % FOL
+\newcommand{\FOk}{\ensuremath{\mathcal{FO}^k}}  % k-variable fragment
+\newcommand{\FOo}{\ensuremath{\mathcal{FO}^2}}  % One-variable fragment
+\newcommand{\FOt}{\ensuremath{\mathcal{FO}^2}}  % Two-variable fragment
+\newcommand{\FOtu}{\ensuremath{\mathcal{FO}^2_u}}  % Two-variable fragment, with unary predicates only
+
+\newcommand{\FOMon}{\ensuremath{\mathcal{FO}_{\mathrm{Mon}}}}  % Monadic fragment
+
+\newcommand{\FOtECk}{\ensuremath{\mathcal{FO}^2k\mbox{\rm EC}}} % FO2 with k equivalence closures
+\newcommand{\FOtEk}{\ensuremath{\mathcal{FO}^2k\mbox{\rm E}}} % FO2 with k equivalences
+\newcommand{\FOtECo}{\ensuremath{\mathcal{FO}^21\mbox{\rm EC}}} % FO2 with 1 equivalence closure
+\newcommand{\FOtEo}{\ensuremath{\mathcal{FO}^21\mbox{\rm E}}} % FO2 with 1 equivalence
+\newcommand{\FOtECt}{\ensuremath{\mathcal{FO}^22\mbox{\rm EC}}} % FO2 with 2 equivalence closures
+\newcommand{\FOtEt}{\ensuremath{\mathcal{FO}^22\mbox{\rm E}}} % FO2 with 2 equivalences
+
+\newcommand{\FOtTk}{\ensuremath{\mathcal{FO}^2k\mbox{\rm T}}} % FO2 with k transitive relations
+\newcommand{\FOtTt}{\ensuremath{\mathcal{FO}^22\mbox{\rm T}}} % FO2 with 2 transitive relations
+\newcommand{\FOtTo}{\ensuremath{\mathcal{FO}^21\mbox{\rm T}}} % FO2 with 1 transitive relation
+\newcommand{\FOtPOo}{\ensuremath{\mathcal{FO}^21\mbox{\rm PO}}} % FO2 with 1 partial order
+\newcommand{\FOtPOou}{\ensuremath{\mathcal{FO}_u^21\mbox{\rm PO}}} % FO2 with onlt unary predicates and 1 partial order
+
+\newcommand{\GFtToEo}{\ensuremath{\mathcal{GF}^21\mbox{\rm E}}1\mbox{\rm T}} % GF2 with 1 transitive relation and 1 equivalence relation.
+
+\newcommand{\GF}{\ensuremath{\mathcal{GF}}}  % Guarded fragment of FOL
+\newcommand{\GFk}{\ensuremath{\mathcal{GF}^k}}  % k-variable guarded fragment of FOL
+\newcommand{\GFt}{\ensuremath{\mathcal{GF}^2}}  % Two-variable guarded fragment of FOL
+\newcommand{\GFthree}{\ensuremath{\mathcal{GF}^3}}  % Three-variable guarded fragment of FOL
+
+\newcommand{\GFtECk}{\ensuremath{\mathcal{GF}^2k\mbox{\rm EC}}} % GF2 with k equivalence closures
+\newcommand{\GFtEk}{\ensuremath{\mathcal{GF}^2k\mbox{\rm E}}} % GF2 with k equivalences 
+\newcommand{\GFtECo}{\ensuremath{\mathcal{GF}^21\mbox{\rm EC}}} % GF2 with 1 equivalence closure
+\newcommand{\GFtEo}{\ensuremath{\mathcal{GF}^21\mbox{\rm E}}} % GF2 with 1 equivalence
+\newcommand{\GFtECt}{\ensuremath{\mathcal{GF}^22\mbox{\rm EC}}} % GF2 with 2 equivalence closures
+\newcommand{\GFtEt}{\ensuremath{\mathcal{GF}^22\mbox{\rm E}}} % GF2 with 2 equivalences
+\newcommand{\GFtTk}{\ensuremath{\mathcal{GF}^2k\mbox{\rm T}}} % GF2 with k transitives 
+\newcommand{\GFtTo}{\ensuremath{\mathcal{GF}^21\mbox{\rm T}}} % FO2 with 1 transitive relation
+\newcommand{\GFtTt}{\ensuremath{\mathcal{GF}^22\mbox{\rm T}}} % FO2 with 2 transitive relations
+
+\newcommand{\C}{\ensuremath{\mathcal{C}}}   % FOL with counting
+\newcommand{\Ck}{\ensuremath{\mathcal{C}^k}}% k-variable logic with counting
+\newcommand{\Co}{\ensuremath{\mathcal{C}^1}}% One-variable logic with counting
+\newcommand{\Ct}{\ensuremath{\mathcal{C}^2}}% Two-variable logic with counting
+\newcommand{\CtkT}{\ensuremath{\mathcal{C}^2k\mbox{\rm T}}}% Two-variable logic with counting and k transitives
+\newcommand{\CtoT}{\ensuremath{\mathcal{C}^21\mbox{\rm T}}}% Two-variable logic with counting and one transitive
+\newcommand{\CtkE}{\ensuremath{\mathcal{C}^2k\mbox{\rm E}}}% Two-variable logic with counting and k equivalences
+\newcommand{\CtoE}{\ensuremath{\mathcal{C}^21\mbox{\rm E}}}% Two-variable logic with counting and one equivalence
+\newcommand{\CttE}{\ensuremath{\mathcal{C}^22\mbox{E}}}% Two-variable logic with counting and two equivalences
+
+\newcommand{\GCt}{\ensuremath{\mathcal{GC}^2}} % Guarded two-variable fragment with counting 
+\newcommand{\GCtkT}{\ensuremath{\mathcal{GC}^2k\mbox{\rm T}}}% Guarded two-variable logic with counting and k transitives
+\newcommand{\GCtoT}{\ensuremath{\mathcal{GC}^21\mbox{\rm T}}}% Guarded two-variable logic with counting and one transitive
+\newcommand{\GCtD}{\ensuremath{\mathcal{GC}^2\mathcal{D}}} % Guarded two-variable fragment with counting and databases
+\newcommand{\GCtDK}{\ensuremath{\mathcal{GC}^2\mathcal{DK}}} % GcTD with key constraints
+\newcommand{\GCtDKub}{\ensuremath{\mathcal{GC}^2\mathcal{DK}_{|2}}} % GcTD with unary and binary key constraints
+
+
+\newcommand{\FOtuDDplus}{\ensuremath{\mathcal{FO}^2_u\mbox{\rm D}\mbox{\rm D}^+}} % Two-variable logic with unaries, daughter and descendants
+\newcommand{\FOtuDDplusSSplus}{\ensuremath{\mathcal{FO}^2_u\mbox{\rm D}\mbox{\rm D}^+\mbox{\rm S}\mbox{\rm S}^+}}% % Two-variable logic with unaries and full navigation.
+
+
+\newcommand{\CtoD}{\ensuremath{\mathcal{C}^2\mbox{\rm D}}}% Two-variable logic over a tree with daughter and descendant
+\newcommand{\CttD}{\ensuremath{\mathcal{C}^22\mbox{\rm D}}}% Two-variable logic with counting and two trees
+\newcommand{\CtkD}{\ensuremath{\mathcal{C}^2k\mbox{\rm D}}}% Two-variable logic with counting and k trees
+
+
+\newcommand{\ALC}{\ensuremath{\mathcal{ALC}}} % Description logic ALC
+\newcommand{\ALCQI}{\ensuremath{\mathcal{ALCQI}}} % Description logic ALCQI
+
+
+\newcommand{\GCk}{\ensuremath{\mathcal{GC}^2}} % Guarded k-variable fragment with counting 
+\newcommand{\cS}{\ensuremath{\mathcal{S}}} % Syllogistic
+\newcommand{\cN}{\ensuremath{\mathcal{N}}} % Numerical syllogistic
+
+\newcommand{\mK}{\ensuremath{\mathrm{K}}}       % Modal K
+\newcommand{\mKT}{\ensuremath{\mathrm{KT}}}     % Modal KT (reflexive)
+\newcommand{\mKD}{\ensuremath{\mathrm{KD}}}     % Modal KD (serial)
+\newcommand{\mKF}{\ensuremath{\mathrm{K}4}}     % Modal K4 (transitive)
+\newcommand{\mKV}{\ensuremath{\mathrm{K}5}}     % Modal K4 (Euclidean))
+\newcommand{\mKTF}{\ensuremath{\mathrm{KT}4}}   % Modal K4T (transitive, reflexive)
+\newcommand{\mKDF}{\ensuremath{\mathrm{KD}4}}   % Modal K4D (transitive, serial)
+\newcommand{\mKB}{\ensuremath{\mathrm{KB}}}     % Modal K4D (symmetric)
+\newcommand{\mKTB}{\ensuremath{\mathrm{KTB}}}   % Modal K4D (symmetric,reflexive)
+\newcommand{\mKDB}{\ensuremath{\mathrm{KDB}}}   % Modal K4D (symmetric,reflexive)
+\newcommand{\mKBF}{\ensuremath{\mathrm{KB}4}}   % Modal KB4 (symmetric,transitive)
+\newcommand{\mKTBF}{\ensuremath{\mathrm{KTB}4}}  % Modal KTB4 (reflexive,symmetric,transitive = S5)
+\newcommand{\mSF}{\ensuremath{\mathrm{S}4}}     % Modal S4
+\newcommand{\mSV}{\ensuremath{\mathrm{S}5}}     % Modal S5 (symmetric,transitive+ either Ser or Refl)
+
+\newcommand{\mKU}{\ensuremath{\mathrm{K}^{\mathrm U}}}       % Modal K with universal modality
+\newcommand{\mKBoole}{\ensuremath{\mathrm{K}^{\mathrm B}}}       % Boolean modal logic
+\newcommand{\mmK}{\ensuremath{\mathrm{K}^{\mathrm m}}}  % Multi-modal K
+\newcommand{\mmKU}{\ensuremath{\mathrm{K}^{\mathrm{m}}\mathrm{U}}}  % Multi-modal K with U
+
+\newcommand{\GrmK}{\ensuremath{\mbox{\rm GrK}}}     % Graded Modal K
+\newcommand{\GrmKT}{\ensuremath{\mathrm{GrKT}}}     % Modal KT (reflexive)
+\newcommand{\GrmKD}{\ensuremath{\mathrm{GrKD}}}     % Modal KD (serial)
+\newcommand{\GrmKF}{\ensuremath{\mathrm{GrK}4}}     % Modal K4 (transitive)
+\newcommand{\GrmKV}{\ensuremath{\mathrm{GrK}5}}     % Modal K4 (Euclidean))
+\newcommand{\GrmKTF}{\ensuremath{\mathrm{GrKT}4}}   % Modal K4T (transitive, reflexive)
+\newcommand{\GrmKDF}{\ensuremath{\mathrm{GrKD}4}}   % Modal K4D (transitive, serial)
+\newcommand{\GrmKB}{\ensuremath{\mathrm{GrKB}}}     % Modal K4D (symmetric)
+\newcommand{\GrmKTB}{\ensuremath{\mathcal{GrK}\mathrm{TB}}}   % Modal K4D (symmetric,reflexive)
+\newcommand{\GrmKDB}{\ensuremath{\mathcal{GrK}\mathrm{DB}}}   % Modal K4D (symmetric,reflexive)
+\newcommand{\GrmKBF}{\ensuremath{\mathrm{GrKB}4}}   % Modal KB4 (symmetric,transitive)
+\newcommand{\GrmKTBF}{\ensuremath{\mathrm{GrKTB}4}}  % Modal KTB4 (reflexive,symmetric,transitive = S5)
+\newcommand{\GrmSF}{\ensuremath{\mathrm{GrS}4}}     % Modal S4
+\newcommand{\GrmSV}{\ensuremath{\mathrm{GrS}5}}     % Modal S5 (symmetric,transitive+ either Ser or Refl)
+\newcommand{\GrmmK}{\ensuremath{\mbox{\rm Gr}\hat{\mathcal{K}}}}  % Graded, multi-modal K
+
+\newcommand{\FL}{\ensuremath{\mathcal{FL}}}          % Fluted fragment
+\newcommand{\FLeq}{\ensuremath{\mathcal{FL}_=}}      %...with equality
+\newcommand{\FLv}[1]{\ensuremath{\mathcal{FL}^{#1}}} % ... superscripted
+\newcommand{\FLeqv}[1]{\ensuremath{\mathcal{FL}^{#1}_=}} % ...with equality, superscripted
+\newcommand{\FLCq}{\ensuremath{\mathcal{FLC}}}        % ... with counting (and equality)    NB \FLC used for Fischer-Ladner closere
+\newcommand{\FLCv}[1]{\ensuremath{\mathcal{FLC}^{#1}}} % ... with counting, superscripted
+\newcommand{\FLU}{\ensuremath{\mathcal{FL}\tilde{\mathcal C}}} % ... with ultra-counting (and equality)
+\newcommand{\FLUv}[1]{\ensuremath{\mathcal{FL}\tilde{\mathcal C}^{#1}}} % ... with ultra-counting (and equality), superscripted.
+
+\newcommand{\FLEo}{\ensuremath{\mathcal{FL}\mbox{\rm E}}} % FL with 2 equivalences
+\newcommand{\FLEt}{\ensuremath{\mathcal{FL}2\mbox{\rm E}}} % FL with 2 equivalences
+\newcommand{\FLEk}{\ensuremath{\mathcal{FL}k\mbox{\rm E}}} % FL with k equivalences
+\newcommand{\FLEoEq}{\ensuremath{\mathcal{FL}_=\mbox{\rm E}}} % FL with 2 equivalences with equality
+\newcommand{\FLEtEq}{\ensuremath{\mathcal{FL}_=2\mbox{\rm E}}} % FL with 2 equivalences  with equality
+\newcommand{\FLEkEq}{\ensuremath{\mathcal{FL}_=k\mbox{\rm E}}} % FL with k equivalences  with equality
+
+
+\newcommand{\FLTo}{\ensuremath{\mathcal{FL}\mbox{\rm T}}} % FL with 1 transitive relation
+\newcommand{\FLTt}{\ensuremath{\mathcal{FL}2\mbox{\rm T}}} % FL with 2 transitive relations
+\newcommand{\FLTk}{\ensuremath{\mathcal{FL}\mbox{\rm T}}}  % FL with k transitive relations
+\newcommand{\FLToEq}{\ensuremath{\mathcal{FL}_=\mbox{\rm T}}} % FL with 1 transitive relation with equality
+\newcommand{\FLTkEq}{\ensuremath{\mathcal{FL}_=k\mbox{\rm T}}} % FL with k transitive relations with equality
+
+% Complexity classes
+\newcommand{\ACZ}{AC$^0$}
+\newcommand{\Time}{\textsc{Time}}
+\newcommand{\Space}{\textsc{Space}}
+\newcommand{\NTime}{\textsc{NTime}}
+\newcommand{\NSpace}{\textsc{NSpace}}
+\newcommand{\ATime}{\textsc{ATime}}
+\newcommand{\ASpace}{\textsc{ASpace}}
+\newcommand{\LogSpace}{\textsc{LogSpace}}
+\newcommand{\NLogSpace}{\textsc{NLogSpace}}
+\newcommand{\NP}{\textsc{NPTime}}
+\newcommand{\NPTime}{\textsc{NPTime}}
+\newcommand{\coNPTime}{\text{\rm co-}\textsc{NPTime}}
+\newcommand{\PTime}{\textsc{PTime}}
+\newcommand{\PSpace}{\textsc{PSpace}}
+\newcommand{\NPSpace}{\textsc{NPSpace}}
+\newcommand{\ExpTime}{\textsc{ExpTime}}
+\newcommand{\TwoExpTime}{\ensuremath{\textsc{2-ExpTime}}}
+\newcommand{\TwoNExpTime}{\ensuremath{\textsc{2-NExpTime}}}
+\newcommand{\ThreeNExpTime}{\ensuremath{\textsc{3-NExpTime}}}
+\newcommand{\kpoExpTime}{\textsc{$(k+1)$-ExpTime}}
+\newcommand{\ExpSpace}{\textsc{ExpSpace}}
+\newcommand{\NExpSpace}{\textsc{NExpSpace}}
+\newcommand{\NExpTime}{\textsc{NExpTime}}
+\newcommand{\kExpSpace}{\textsc{$k$-ExpSpace}}
+
+\newcommand{\APSpace}{\textsc{APSpace}}
+\newcommand{\APTime}{\textsc{APTime}}
+\newcommand{\AExpSpace}{\textsc{AExpSpace}}
+\newcommand{\AExpTime}{\textsc{AExpTime}}
+
+\newcommand{\AkExpSpace}{\textsc{A$k$-ExpSpace}}
+\newcommand{\AkExpTime}{\textsc{A$k$-ExpTime}}
+
+
+\newcommand{\Tower}{\textsc{Tower}}
+\newcommand{\co}[1]{\textsc{co-}#1}
+
+% Problems
+\newcommand{\Sat}{\ensuremath{\mbox{\rm Sat}}}
+\newcommand{\FinSat}{\ensuremath{\mbox{\rm FinSat}}}
+\newcommand{\DataSat}[1]{\ensuremath{\mbox{\rm Data-Sat}\langle #1\rangle}}
+\newcommand{\DataFinSat}[1]{\ensuremath{\mbox{\rm Data-FinSat}\langle #1\rangle}}
+\newcommand{\QAns}{\ensuremath{\mbox{\rm QAns}}}
+\newcommand{\FinQAns}{\ensuremath{\mbox{\rm QFinAns}}}
+\newcommand{\QAnsP}[2]{\ensuremath{\mbox{\rm QAns}\langle #1, #2\rangle}}
+\newcommand{\FinQAnsP}[2]{\ensuremath{\mbox{\rm QFinAns}\langle #1, #2\rangle}}
+
+
+\renewcommand{\problem}[4]{   %{Name}{Given}{Yes condition}{No condition}
+\begin{flushleft}
+\hspace{0.5cm}
+\begin{minipage}{11cm}
+\begin{tabbing}
+#1\\
+$\qquad$ \= Given: #2\\
+\> Return: \= Yes #3\\
+\> \>         No #4 
+\end{tabbing}
+\end{minipage}
+\end{flushleft}
+}
+
+\newcommand{\shortProblem}[4]{
+\begin{flushleft}
+\begin{minipage}{10cm}
+\begin{tabbing}
+#1\\
+$\qquad$ \= Given: #2\\
+\> Return: \= Yes #3\ No #4 
+\end{tabbing}
+\end{minipage}
+\end{flushleft}
+}
+
+
+% Turing machines
+
+\newcommand{\blank}{\ensuremath{\llcorner \hspace{-1mm} \lrcorner}} % blank symbol        
+\newcommand{\leftMarker}{\ensuremath{\triangleleft}}    %left end of tape symbol
+
+
+% Theorem-proving 
+
+\newcommand{\mgu}{\ensuremath{\mathrm{mgu}}} % most general unifier  (ch:gfk, ch:qpf?)
+
+% Ch 8 (from Georrge)
+
+% fans etc
+\newcommand{\branch}[2]{\ensuremath{\mathrm{branch}_{#2}\langle #1 \rangle}}
+\newcommand{\fan}[1]{\ensuremath{\mathrm{fan}\langle #1 \rangle}}
+\newcommand{\isth}[1]{\ensuremath{\mathrm{isth}\langle #1 \rangle}}
+\newcommand{\sat}[1]{\ensuremath{\mathrm{sat}\langle #1 \rangle}}
+\newcommand{\dbpath}[1]{\ensuremath{\textsc{db-path}(#1)}}
+\newcommand{\dbtour}[1]{\ensuremath{\textsc{db-tour}(#1)}}
+\newcommand{\dst}[1]{\ensuremath{\mathrm{dst}( #1 )}}
+\newcommand{\frev}{\ensuremath{f^{-1}}}
+\newcommand{\bsrev}{\ensuremath{\bs^{-1}}}
+\newcommand{\seq}{\ensuremath{\bar{\mathbf r}_\kappa}}
+
+% Other useful mathematical symbols
+% \newcommand{\myvec}[1]{\ensuremath{\mathbf{#1}}}  % Notation for `vectors'
+\newcommand{\myvec}[1]{{\underline{#1}}}
+%\newcommand{\mymat}[1]{\ensuremath{\mathbf{#1}}}  % Matrices
+\newcommand{\mymat}[1]{\ensuremath{#1}}  % Matrices currently ordinary upper case letters
+
+
+\newcommand{\PFD}{\protect\reflectbox{P}}         % Backwards P for path-functional dependencies
+
+% Operators
+
+% Relations
+\newcommand{\finModels }{\ensuremath{\models_{\text{fin}}}} 
+
+
+% Font customization
+\renewcommand{\phi}{\varphi}
+
+% For editting
+\newcommand{\nb}[1]{$|$\marginpar{\scriptsize\raggedright\textcolor{red}{#1}}}
+
+
+% Macro for 'expansion' of formulas
+\newcommand{\expFla}{\ensuremath{\triangleleft}}  % used in Chh 3, 6 and 7 and hopefully elsewhere. Ch foe
+\newcommand{\expFlaN}[1]{\ensuremath{\triangleleft_{#1}}}  % used in Chh 3, 6 and 7 and hopefully elsewhere.
+\newcommand{\equivFla}{\ensuremath{\equiv}}  % used in Chh 3, 6 and 7 and hopefully elsewhere.
+\newcommand{\equivFlaN}[1]{\ensuremath{\equiv_{#1}}}  % used in Chh 3, 6 and 7 and hopefully elsewhere.
+
+
+% Special macros for strings (currently in Chapter 7) Deploy?
+
+\newcommand{\s}{\ensuremath{\texttt{s}}}    % mono s
+\newcommand{\x}{\ensuremath{\texttt{\rm x}}}    % mono x / input word for TM ch:qpf
+\renewcommand{\c}{\ensuremath{\texttt{c}}}    % initial condition for tiling problem C ch:qpf
+\newcommand{\y}{\ensuremath{\texttt{y}}}    % mono y
+\newcommand{\sO}{\ensuremath{\texttt{s0}}}  
+\newcommand{\sI}{\ensuremath{\texttt{s1}}}
+\renewcommand{\t}{\ensuremath{\texttt{t}}}  % mono t
+\newcommand{\tO}{\ensuremath{\texttt{t0}}}
+\newcommand{\tI}{\ensuremath{\texttt{t1}}}
+\newcommand{\bitb}{\ensuremath{\mathtt{b}}}
+\newcommand{\xO}{\mathtt{0}}
+\newcommand{\xI}{\mathtt{1}}
+\newcommand{\lps}{\ensuremath{\Lambda_{\pi, \s}}}
+\newcommand{\mpt}{\ensuremath{M_{\pi, \t}}}
+\newcommand{\Ccom}{\mbox{CC}}
+\newcommand{\CcomS}{\mbox{CCS}}
+\newcommand{\CcomT}{\mbox{CCT}}
+
+
+% Spacial macros for ch:mod
+
+\newcommand{\qd}{\ensuremath{\mbox{qd}}} % quantifier depth
+\newcommand{\sd}{\ensuremath{\mbox{sd}}} % super depth
+\newcommand{\md}{\ensuremath{\mbox{md}}} % 2 - parity
+
+
+% Special macros for Ch 10
+
+\newcommand{\Racl}{e_1^{\scriptscriptstyle \#}}
+\newcommand{\Rbcl}{e_2^{\scriptscriptstyle \#}}
+\newcommand{\Ricl}{e_i^{\scriptscriptstyle \#}}
+\newcommand{\Rtmicl}{e_{3-i}^{\scriptscriptstyle \#}}
+\newcommand{\Rkcl}{e_k^{\scriptscriptstyle \#}}
+\newcommand{\Raclp}{{e_1'}^{\scriptscriptstyle \#}}
+\newcommand{\Rbclp}{{e_2'}^{\scriptscriptstyle \#}}
+\newcommand{\Raclb}{s_1}%{\overline{r_1}}
+\newcommand{\Rbclb}{s_2}%{\overline{r_2}}
+\newcommand{\Riclb}{s_i}%{\overline{r_i}}
+
+\newcommand{\charfn}[2]{\mbox{\rm Ch}_{#2}^{#1}}
+
+\newcommand{\taucl}{\tau^{\scriptscriptstyle \#}}
+
+\newcommand{\Eo}{E_1^{}}
+\newcommand{\Et}{E_2^{}}
+\newcommand{\Ei}{E_i^{}}
+
+
+\newcommand{\sss}{\scriptscriptstyle}
+\newcommand{\emodels}{\models_{\sss \#}}
+\newcommand{\pmodels}{\mid \hspace*{-1.5pt}\approx_{\sss \#}}
+
+\newcommand{\AAA}{\mbox{\boldmath $\alpha$}}
+\newcommand{\BBB}{\mbox{\boldmath $\beta$}}
+
+\newcommand{\adj}[1]{\triangleright_{\sss #1}}
+\newcommand{\safexd}[1]{\preceq_{\sss #1}}
+\newcommand{\safex}[1]{\succeq_{\sss #1}}
+\newcommand{\decM}{\hat{M}}
+\newcommand{\undecorate}[1]{\bar{#1}}
+\newcommand{\decorate}[1]{\hat{#1}}
+\newcommand{\decoratef}[2]{#1^{\triangleright #2}}
+
+\newcommand{\bgeq}{\mathbf{\succeq}}%
+
+\newcommand{\ord}{\mbox{\rm ord}}% order (single number, for undirected graphs)
+\renewcommand{\deg}{\mbox{\rm deg}}% degree (single number)
+\newcommand{\Deg}{\mbox{\rm Deg}}% degree (pair of numbers)
+\newcommand{\DEG}{\mbox{\rm DEG}}% degree (pair of numbers with extra argument gamma
+
+\def\presuper#1#2%           %presuperscripts --- a bit unsure what these are
+  {\mathop{}%
+   \mathopen{\vphantom{#2}}^{#1}%
+   \kern-\scriptspace%
+   #2}
+	\newcommand{\ex}[1]{\presuper{\scriptscriptstyle =}{#1}}
+	\newcommand{\gr}[1]{\presuper{\scriptscriptstyle \ge}{#1}}
+	\newcommand{\lr}[1]{\presuper{\scriptscriptstyle \le}{#1}}
+
+\newcommand{\lrLink}{+}%
+\newcommand{\rlLink}{-}%
+\newcommand{\bdLink}{\circ}%
+\newcommand{\bDelta}{\mathbf{\Delta}}% collections of edges
+
+
+% Special macros for Ch 12 (Transitivity)
+
+\newcommand{\FC}{\ensuremath{\mbox{FC}}}% collections of edges
+\newcommand{\modt}[1]{{\lfloor#1\rfloor}} % remainder modulo 3. WARNING USED ELSEWHERE. Consistent?
+\newcommand{\modtk}[2]{{\lfloor#1\rfloor_{#2}}} % remainder modulo k. Used Ch: foe WARNING USED ELSEWHERE. Consistent?
+\newcommand{\leftCell}{L}
+\newcommand{\rightCell}{R}
+\newcommand{\converseDiatom}{I}
+\newcommand{\relVar}{\mathfrak{s}}
+
+% Colours
+
+\definecolor{GreenYellow}   {cmyk}{0.15,0,0.69,0}
+	\definecolor{Yellow}        {cmyk}{0,0,1,0}
+	\definecolor{Goldenrod}     {cmyk}{0,0.10,0.84,0}
+	\definecolor{Dandelion}     {cmyk}{0,0.29,0.84,0}
+	\definecolor{Apricot}       {cmyk}{0,0.32,0.52,0}
+	\definecolor{Peach}         {cmyk}{0,0.50,0.70,0}
+	\definecolor{Melon}         {cmyk}{0,0.46,0.50,0}
+	\definecolor{YellowOrange}  {cmyk}{0,0.42,1,0}
+	\definecolor{Orange}        {cmyk}{0,0.61,0.87,0}
+	\definecolor{BurntOrange}   {cmyk}{0,0.51,1,0}
+	\definecolor{Bittersweet}   {cmyk}{0,0.75,1,0.24}
+	\definecolor{RedOrange}     {cmyk}{0,0.77,0.87,0}
+	\definecolor{Mahogany}      {cmyk}{0,0.85,0.87,0.35}
+	\definecolor{Maroon}        {cmyk}{0,0.87,0.68,0.32}
+	\definecolor{BrickRed}      {cmyk}{0,0.89,0.94,0.28}
+	\definecolor{Red}           {cmyk}{0,1,1,0}
+	\definecolor{OrangeRed}     {cmyk}{0,1,0.50,0}
+	\definecolor{RubineRed}     {cmyk}{0,1,0.13,0}
+	\definecolor{WildStrawberry}{cmyk}{0,0.96,0.39,0}
+	\definecolor{Salmon}        {cmyk}{0,0.53,0.38,0}
+	\definecolor{CarnationPink} {cmyk}{0,0.63,0,0}
+	\definecolor{Magenta}       {cmyk}{0,1,0,0}
+	\definecolor{VioletRed}     {cmyk}{0,0.81,0,0}
+	\definecolor{Rhodamine}     {cmyk}{0,0.82,0,0}
+	\definecolor{Mulberry}      {cmyk}{0.34,0.90,0,0.02}
+	\definecolor{RedViolet}     {cmyk}{0.07,0.90,0,0.34}
+	\definecolor{Fuchsia}       {cmyk}{0.47,0.91,0,0.08}
+	\definecolor{Lavender}      {cmyk}{0,0.48,0,0}
+	\definecolor{Thistle}       {cmyk}{0.12,0.59,0,0}
+	\definecolor{Orchid}        {cmyk}{0.32,0.64,0,0}
+	\definecolor{DarkOrchid}    {cmyk}{0.40,0.80,0.20,0}
+	\definecolor{Purple}        {cmyk}{0.45,0.86,0,0}
+	\definecolor{Plum}          {cmyk}{0.50,1,0,0}
+	\definecolor{Violet}        {cmyk}{0.79,0.88,0,0}
+	\definecolor{RoyalPurple}   {cmyk}{0.75,0.90,0,0}
+	\definecolor{BlueViolet}    {cmyk}{0.86,0.91,0,0.04}
+	\definecolor{Periwinkle}    {cmyk}{0.57,0.55,0,0}
+	\definecolor{CadetBlue}     {cmyk}{0.62,0.57,0.23,0}
+	\definecolor{CornflowerBlue}{cmyk}{0.65,0.13,0,0}
+	\definecolor{MidnightBlue}  {cmyk}{0.98,0.13,0,0.43}
+	\definecolor{NavyBlue}      {cmyk}{0.94,0.54,0,0}
+	\definecolor{RoyalBlue}     {cmyk}{1,0.50,0,0}
+	\definecolor{Blue}          {cmyk}{1,1,0,0}
+	\definecolor{Cerulean}      {cmyk}{0.94,0.11,0,0}
+	\definecolor{Cyan}          {cmyk}{1,0,0,0}
+	\definecolor{ProcessBlue}   {cmyk}{0.96,0,0,0}
+	\definecolor{SkyBlue}       {cmyk}{0.62,0,0.12,0}
+	\definecolor{Turquoise}     {cmyk}{0.85,0,0.20,0}
+	\definecolor{TealBlue}      {cmyk}{0.86,0,0.34,0.02}
+	\definecolor{Aquamarine}    {cmyk}{0.82,0,0.30,0}
+	\definecolor{BlueGreen}     {cmyk}{0.85,0,0.33,0}
+	\definecolor{Emerald}       {cmyk}{1,0,0.50,0}
+	\definecolor{JungleGreen}   {cmyk}{0.99,0,0.52,0}
+	\definecolor{SeaGreen}      {cmyk}{0.69,0,0.50,0}
+	\definecolor{Green}         {cmyk}{1,0,1,0}
+	\definecolor{ForestGreen}   {cmyk}{0.91,0,0.88,0.12}
+	\definecolor{PineGreen}     {cmyk}{0.92,0,0.59,0.25}
+	\definecolor{LimeGreen}     {cmyk}{0.50,0,1,0}
+	\definecolor{YellowGreen}   {cmyk}{0.44,0,0.74,0}
+	\definecolor{SpringGreen}   {cmyk}{0.26,0,0.76,0}
+	\definecolor{OliveGreen}    {cmyk}{0.64,0,0.95,0.40}
+	\definecolor{RawSienna}     {cmyk}{0,0.72,1,0.45}
+	\definecolor{Sepia}         {cmyk}{0,0.83,1,0.70}
+	\definecolor{Brown}         {cmyk}{0,0.81,1,0.60}
+	\definecolor{Tan}           {cmyk}{0.14,0.42,0.56,0}
+	\definecolor{Gray}          {cmyk}{0,0,0,0.50}
+	\definecolor{Black}         {cmyk}{0,0,0,1}
+	\definecolor{White}         {cmyk}{0,0,0,0}
+
+
+% Macros for ch:mod
+
+\newcommand{\Sb}{\ensuremath{\mathrm{Sb}}}  % Subformulas
+\newcommand{\FLC}{\ensuremath{\mathrm{FL}}} % Fischer-Ladner closure
+\newcommand{\Un}{\ensuremath{\mathrm{Un}}} % Units
+
+\newcommand{\uBox}{\ensuremath{\mathrm{U}}}
+
+% Macros for ch:flu (Fluted fragment)
+
+% The real stuff
+%\newcommand{\kint}[1]{\ensuremath{\mbox{int}\langle #1 \rangle}}
+\newcommand{\kint}[1]{\ensuremath{\mbox{int}_{#1}}}
+%\newcommand{\kin}[1]{\ensuremath{\mbox{in}\langle #1 \rangle}}
+\newcommand{\kin}[1]{\ensuremath{\mbox{in}_{#1}}}
+\newcommand{\kout}[1]{\ensuremath{\mbox{out}_{#1}}}
+\newcommand{\kinStar}[1]{\ensuremath{{\mbox{in}^\triangleleft_{#1}}}}
+\newcommand{\koutStar}[1]{\ensuremath{{\mbox{out}^\triangleleft_{#1}}}}
+\newcommand{\keq}[1]{\ensuremath{\mbox{eq}_{#1}}}
+\newcommand{\kdeq}[2]{\ensuremath{\mbox{eq}_{#1, #2}}}
+\newcommand{\keqDig}[1]{\ensuremath{\mbox{eqDig}_{#1}}}
+\newcommand{\kdeqDig}[2]{\ensuremath{\mbox{eqDig}_{#1, #2}}}
+\newcommand{\kpred}[1]{\ensuremath{\mbox{pred}_{#1}}}
+\newcommand{\kdpred}[2]{\ensuremath{\mbox{pred}_{#1,#2}}}
+\newcommand{\kpredDig}[1]{\ensuremath{\mbox{predDig}_{#1}}}
+\newcommand{\kdpredDig}[2]{\ensuremath{\mbox{predDig}_{#1,#2}}}
+\newcommand{\vertX}{\ensuremath{\mbox{vtx}}}
+\newcommand{\kinX}{\ensuremath{\mbox{in}^X}}
+\newcommand{\kinY}{\ensuremath{\mbox{in}^Y}}
+\newcommand{\towerOrder}[1]{\ensuremath{\mathfrak{t}(#1)}}
+\newcommand{\tower}[2]{\ensuremath{\mathfrak{t}(#1,#2)}}
+\newcommand{\val}[1]{\ensuremath{\mbox{val}_{#1}}}
+\newcommand{\kzero}[1]{\ensuremath{\mbox{zero}_{#1}}}
+\newcommand{\ksucc}[1]{\ensuremath{\mbox{succ}\langle #1 \rangle}}
+
+\newcommand{\cat}{\ensuremath{\mbox{\rm cat}}}
+\newcommand{\afc}{\ensuremath{\mbox{\rm afc}}}
+\newcommand{\con}{\ensuremath{\mbox{\rm con}}}
+\newcommand{\Con}{\ensuremath{\mbox{\rm Con}}}
+
+\newcommand{\ftp}{\ensuremath{{\rm ftp}}}
+
+
+% tikz macros
+
+\tikzset{->-/.style={decoration={
+  markings,
+  mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
+\tikzset{-<-/.style={decoration={
+  markings,
+  mark=at position #1 with {\arrow{<}}},postaction={decorate}}}
+  
+\tikzset{-|>-/.style={decoration={
+    markings,
+    mark=at position #1 with {\arrow{open triangle 60}}},postaction={decorate}}}
+
+
+
+% Indexing macros
+\newcommand{\ix}[1]{#1\index{#1}}

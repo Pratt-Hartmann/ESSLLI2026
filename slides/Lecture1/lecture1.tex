@@ -1,0 +1,388 @@
+%\documentclass[handout]{beamer}
+\documentclass{beamer}
+%\setbeamertemplate{footline}[frame number]
+\usepackage{multicol}
+\usepackage{fancybox}
+\usepackage{proof}     
+\usepackage{mathdots}
+\usepackage[normalem]{ulem}
+
+\usepackage{tikz}
+\usetikzlibrary{through}
+\usetikzlibrary{calc}
+\usepgflibrary{arrows}
+\usetikzlibrary{shapes}
+\usetikzlibrary{decorations.pathmorphing,decorations.markings,decorations.pathreplacing,snakes}
+\tikzstyle{element}=[circle,draw=blue,fill=blue,inner sep=0pt,minimum size=3]
+\tikzstyle{gElement}=[circle,draw=green,fill=green,inner sep=0pt,minimum size=3]
+
+
+%\usetikzlibrary{decorations.pathreplacing}
+%\usetikzlibrary{decorations.markings}
+%\usepackage{qtree}
+
+\usepackage{amsthm}
+\usepackage{amsthm}
+\usepackage{amssymb}
+%\usepackage{enumitem}
+
+\input{macros}
+\tikzset{->-/.style={decoration={
+			markings,
+			mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
+
+%\usepackage[dvipsnames,usenames]{xcolor}
+\mode<presentation>
+{
+%    \usetheme{Singapore}
+   \usetheme{Warsaw}
+%    \useinnertheme[(options)]{rounded}
+%    \setbeamercovered{transparent}
+%    \usecolortheme{seahorse}
+%    \usecolortheme{rose}
+}
+
+
+\title[First-Order Decision Problem]{{\large 
+Computational perspectives on the\\ Classical
+Decision Problem}}
+\author{
+Ian Pratt-Hartmann \hspace{2cm} Bartosz Bednarczyk\\
+\hspace{0.1cm} Manchester University \hspace{1.8cm}
+Wroc\l{}aw University \hspace{0.1cm}
+%{\tt ian.pratt\@manchester.ac.uk}
+}
+\date{ESSLLI 2026}
+\institute{}
+%Department of Computer Science, Manchester University, UK\\
+%	Instytut Informatyki, Uniwersytet Opolski, Polska\\
+%email: ian.pratt@manchester.ac.uk}
+
+
+
+\tikzset{->-/.style={decoration={
+			markings,
+			mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
+\tikzset{-<-/.style={decoration={
+			markings,
+			mark=at position #1 with {\arrow{<}}},postaction={decorate}}}
+
+\tikzset{-|>-/.style={decoration={
+			markings,
+			mark=at position #1 with {\arrow{open triangle 60}}},postaction={decorate}}}
+
+\definecolor{Yellow}        {cmyk}{0,0,1,0}
+\definecolor{myYellow}      {cmyk}{0,0,0.15,0}
+\definecolor{myGray}        {cmyk}{0,0,0,0.30}
+
+
+%\tikzset{->-/.style={decoration={
+%  markings,
+%  mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
+%  
+  
+
+%\AtBeginSection[]
+%{
+%  \begin{frame}<beamer>
+%    \frametitle{Outline}
+%    \tableofcontents[currentsubsection]
+%  \end{frame}
+%}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+
+
+
+\begin{frame}
+	\begin{itemize}
+		\item    
+In these lectures, we consider the \cbl{{\em Entscheidungsproblem}}
+		(decision problem): 
+		\begin{quote}
+			Does there exist an algorithm to determine whether a given formula of first-order logic is valid?
+		\end{quote}
+		D.~Hilbert  and W.~Ackermann: {\em Grundz\"{u}ge der theoretischen Logik}, 1928.\\
+		\ \\
+		\begin{center}
+			\resizebox{!}{2cm}{\includegraphics{hilbert.jpg}}
+			\hspace{0.5cm}
+			\resizebox{!}{2cm}{\includegraphics{ackermann.jpg}}
+			\hspace{0.25cm}
+			\resizebox{!}{2cm}{\includegraphics{church.jpg}}
+			\hspace{0.5cm}
+			\resizebox{!}{2cm}{\includegraphics{turing.jpg}}
+		\end{center}
+		\item This question was answered negatively by A.~Church and A.~Turing in 1936/7.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\begin{itemize}
+		\item The problem has a finite analogue: does there exist an algorithm to determine whether a given formula of first-order logic is \cbl{finitely} valid?
+		\item This too was answered negatively by B.~Trakhtenbrot in 1950.
+		\begin{center}
+			\resizebox{1.75cm}{!}{\includegraphics{trakhtenbrot.jpg}}
+		\end{center}
+	\end{itemize}
+\end{frame}
+
+
+
+%\section{The classical syllogistic and the extended classical syllogistic}	
+%\subsection{}
+\begin{frame}
+	\begin{itemize}
+		\item The following example provides a nice
+		illustration of these problems.
+\begin{itemize}
+\item Imagine a football league in which every team plays every other, under rules ensuring that each match produces a clear winner. 
+\item Define a {\em pretty good team} to be a team $x$ such that, for any other team $y$, either
+$x$ beats $y$, or $x$ beats some team which beats $y$. 
+\item We claim that there must exist at least one pretty good team.
+\end{itemize}	
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{minipage}{7cm}
+\resizebox{7cm}{!}{
+\begin{minipage}{8cm}
+By induction on the number of teams in the league.\\
+\ \\	
+Let $A$ be the set of teams in the league.\\
+\ \\
+If $|A|=1$, the statement is trivial.\\
+\ \\
+Otherwise, pick  $a \in A$, and let $B = A \setminus \set{a}$.\\
+\ \\
+By IH, let $b$ be a pretty good team with respect to $B$, and let
+$B'$ be the set of teams in $B$ that $b$ beats.\\
+\ \\
+If $a$ beats every team in $B' \cup \set{b}$, then $a$ is a pretty good team for $A$.\\
+\ \\If some team in $B' \cup \set{b}$ beats $a$, then $b$ is a pretty good team for $A$.
+\end{minipage}
+}
+\end{minipage}
+\begin{minipage}{3.5cm}
+\resizebox{3.5cm}{!}{\begin{tikzpicture}[scale=0.75]
+\draw(0,0) rectangle(4,4);
+\node<1-2> (A) at (0.25,3.5) {$A$};
+\node<3-> (B) at (0.25,3.5) {$B$};
+\node<2->[element,label=right:{$a$}] (a) at (3.4,3.5) {};
+\filldraw<3->[fill=yellow,opacity= 0.5] (0,0) -- (0,4) -- (3,4) -- (3,3) -- (4,3) -- (4,0) -- cycle;
+\node<4->[element,label=right:{$b$}] (b) at (0.2,0.5) {};
+\filldraw<5->[fill=blue,opacity=0.2] (0,1) -- (1,1) -- (1,0) -- (2,0) -- (2,2) -- (0,2) -- cycle;
+\node<5-> (Bp) at (1.25,1.5) {$B'$};
+\draw<6>[->] (a) to  [bend right=45] (1.8,2); 
+\node<7->[element] (c) at (0.5,1.5) {};
+\draw<7>[->] (c) to  [bend left=45] (a); 
+
+
+\end{tikzpicture}
+}
+\vspace{3cm}
+\end{minipage}		
+\end{frame}
+
+
+\begin{frame}
+	\begin{itemize}
+		\item What this argument in fact shows is that the first-order formula 
+		\begin{multline*}
+			\forall x \forall y \big(x \neq y \rightarrow \big(r(x,y) \vee r(y,x)\big)\big) 
+			\rightarrow\\
+			\exists x \forall y \big(x \neq y \rightarrow 
+			\big[r(x,y) \vee \exists z \big(r(x,z) \wedge  r(z,y)\big)\big]\big),
+		\end{multline*}
+		is true in {\color{blue} every finite structure}. 
+		\item But this formula is not true in {\color{blue} every structure}: consider the natural numbers $\N$ for the domain of quantification, and let $r(x,y)$ be ``$x$ is greater than $y$''.  
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\begin{itemize}
+		\item A formula is said to be {\color{blue} valid} if it is true in every structure, and {\color{blue} finitely valid} if it is true in every finite structure. 
+		\item Our questions:
+		\begin{itemize}
+			\item Does there exist an {\color{blue} algorithm} to determine whether a given formula of first-order logic is valid? 
+			\item Does there exist an algorithm to determine whether it is finitely valid?
+		\end{itemize}
+%\item Thus,
+%		\begin{multline*}
+%			\forall x \forall y \big(x \neq y \rightarrow \big(r(x,y) \vee r(y,x)\big)\big) 
+%			\rightarrow\\
+%			\exists x \forall y \big(x \neq y \rightarrow 
+%			\big[r(x,y) \vee \exists z \big(r(x,z) \wedge  r(z,y)\big)\big]\big)
+%		\end{multline*}
+%		is finitely valid, but not valid.
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+	\begin{itemize}	
+		\item Usually, this problem is posed in a dual form.
+		\item A formula $\phi(\bar{x})$ of first-order logic 
+		is \cbl{satisfiable} if, for some structure $\fA$ and tuple of objects $\bar{a}$ from $A$, we have $\fA \models \phi[\bar{a}]$.
+		\item A formula $\phi(\bar{x})$ is \cbl{finitely satisfiable} if, for some \cbl{finite} structure $\fA$ and tuple $\bar{a}$, we have $\fA \models \phi[\bar{a}]$.
+		\item Thus, a sentence $\phi$ is (finitely) valid if and only if $\neg \phi$ is not (finitely) satisfiable.
+		\item We apply the terms ``satisfiable'' and ``finitely satisfiable'' to \cbl{sets} of formulas $\Phi(\bar{x})$.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\begin{itemize}
+\item We can think of any decision problem as a \cbl{set of strings}.
+\item A set (of strings) $L$ is said to be \cbl{computable} or \cbl{recursive} if there is some Turing machine $M$ that is guaranteed to halt, and that terminates successfully on input $x$ if and only if $x \in L$.
+\item A set $L$ is said to be \cbl{recursively enumerable} (r.e.) if there is some Turing machine $M$ that terminates successfully on input $x$ if and only if $x \in L$.
+\item A set $L$ is said to be \cbl{co-recursively enumerable} (co-r.e.) if there is some Turing machine $M$ that terminates successfully on input $x$ if and only if $x \not \in L$.
+\item A set is recursive iff it is r.e.~and co-r.e.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\begin{itemize}
+\item Turing showed that the set of \cbl{satisfiable}
+formulas of first-order logic is not r.e.
+\item Trakhtenbrot showed that the set of \cbl{finitely satisfiable}
+formulas of first-order logic is not co-r.e.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\begin{itemize}	
+		\item An algorithmic solution of the
+		{\em Entscheidungsproblem} was already known for certain 
+		restricted classes of first-order formulas, or \cbl{fragments} of first-order logic:\\
+		\ \\
+		\begin{itemize}
+			\item The monadic fragment (L.~L\"{o}wenheim, 1915)
+			\item Formulas $\exists \bar{x} \forall \bar{y}\, \psi$ (P.~Bernays and M.~Sch\"{o}nfinkel, 1928)
+			\item Formulas $\exists \bar{x} \forall y \exists \bar{z}\, \psi$ (W.~Ackermann, 1928)
+			\item Equality-free formulas $\exists \bar{x} \forall y_1 \forall y_2 \exists \bar{z}\, \psi$ 	
+			(K.~G\"{o}del, K.~Sch\"{u}tte, 
+			L.~Kalm\'{a}r~1933).
+		\end{itemize}.
+		\item Thus, Hilbert and Ackermann's \textit{Entscheidungsproblem} becomes a \cbl{classification problem}: which fragments of first-order logic are decidable for validity?
+	\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+	\begin{itemize}
+		\item Thus, if $\cL$ is any fragment of first-order logic,
+		the \cbl{satisfiability problem} for $\cL$ is the following problem: 
+		\problem{\Sat(\cL)}{a finite set $\Phi$ of $\cL$-formulas}{if $\Phi$ is satisfiable}{otherwise.}
+		\item The \cbl{finite satisfiability problem} for $\cL$ is the following problem: 
+		\problem{\FinSat(\cL)}{a finite set $\Phi$ of $\cL$-formulas}{if $\Phi$ is finitely satisfiable}{otherwise.}
+		\item Most fragments of interest are closed under conjunction. In that case, we may take the input to $\Sat(\cL)$ or $\FinSat(\cL)$ to be a single formula $\phi$.
+		\item We ask: for which fragments $\cL$ of first-order logic  are $\Sat(\cL)$ and/or $\FinSat(\cL)$ decidable.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item The principal fragments of first-order logic which are decidable
+for satisfiability and finite satisfiability fall into four major classes:
+\begin{itemize}
+	\item two-variable fragments;
+	\item the guarded fragments;
+	\item quantifier-prefix fragments;
+	\item variable-ordering fragments (the `fluted' fragment).
+\end{itemize} 
+\item 
+The above fragments include all the most venerable logical system of all---Aristotle's syllogistic.
+\item In this series of lectures, we shall be explaining the main ideas behind the decision procedures for representative fragments in these classes.
+\end{itemize}
+\end{frame}
+
+%
+%\begin{frame}
+%\begin{itemize}
+%\item We can be inventive in defining fragments of first-order logic.
+%\item For example, first-order logic has the ability to count:
+%\begin{align*}
+%& \forall x_1 \forall x_2 \forall x_3 \left( p(x) \wedge p(y) \wedge p(z) \rightarrow (x = y \vee y = z \vee x = z) \right)\\  
+%& \ \\
+%& \cbl{\exists_{\leq 2} x \, p(x)}.
+%\end{align*} 	
+%\end{itemize}
+%\end{frame}
+
+
+\begin{frame}
+\begin{itemize}
+\item 
+A fragment $\cL$ of first-order logic is said to have the \cbl{finite model property} if all satisfiable finite sets of formulas
+are finitely satisfiable, or, equivalently,
+if $\Sat(\cL) = \FinSat(\cL)$. 
+\item In 1930, K.~G\"{o}del showed that the set of valid sentences of first-order logic can be \cbl{axiomatically characterized}
+in terms of a finite list of axiom schemas and the inference rules of generalization and \textit{modus ponens}.
+\item 
+Hence, every fragment of first-order logic with the finite model property has a decidable satisfiability problem: given a finite set of formulas $\Phi$, we can just enumerate the proofs and the finite structures in parallel and wait until we obtain either a model of $\Phi$ or a proof of $\neg 
+\bigwedge \Phi$.
+%\item The converse is not true: there are fragments which lack the FMP, but whose satisfiability and finite satisfiability problems are decidable. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item If a problem is algorithmically
+solvable, the obvious question to ask is: how quickly? 
+\item We make use of the familiar hierarchy of complexity classes
+\begin{multline*}
+\NLogSpace \subseteq \PTime \subseteq \NPTime \subseteq \PSpace \subseteq\\ 
+  \ExpTime \subseteq \NExpTime{} \subseteq \cdots \hspace {0.125cm}
+\end{multline*}
+\item In particular, if $\Sat(\cL)$ or $\FinSat(\cL)$ decidable, we
+ask: in what complexity classes do these problems lie.
+\item For any complexity class  $\cC$, a problem $P$ is \cbl{$\cC$-hard}
+if, any other problem $Q$ in $\cC$ can be reduced to it (many-one log-space reduction). 
+\item A problem $P$ is \cbl{$\cC$-complete} if it is in $\cC$ and $\cC$-hard.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item We observe a trade-off between expressive power and complexity/decidability:
+\begin{itemize}
+	\item The satisfiability problem for
+	   the \cbl{Aristotelian syllogistic} is \NLogSpace-complete.
+	\item The satisfiability problems for
+	the decidable \cbl{quantifier-prefix fragments} mentioned above are all 
+	\NExpTime-complete.
+	\item The satisfiablility problem for the \cbl{fluted fragment} is decidable, but not in any class in the above
+	hierarchy!
+\end{itemize}
+\item Eventually, we reach undecidability:  $\FinSat(\FO)$ is r.e.-complete  and
+ $\Sat(\FO)$ is co-r.e.-complete. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item What you will need for these lectures:
+\begin{itemize}
+	\item Basic first-order logic: formulas, structures, satisfaction.
+	\item Basic computability theory: Turing machines, the notions of recursive, recursively enumerable and co-recursively enumerable sets. 
+	\item Basic complexity theory: deterministic and non-deterministic Turing machines, alternating Turing machines, standard time- and
+	space-complexity bounds, reductions, hardness and completeness.
+\end{itemize}
+\end{itemize}	
+\end{frame}
+
+\end{document}
+
