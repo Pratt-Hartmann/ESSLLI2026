@@ -14,25 +14,22 @@ Complexity.
 Preview.
 
 
-Lecture 2 (BB): Curently planned to be the 1-variable fragment.
+Lecture 2 (BB): The monadic fragment
 
-Maybe we can include the monadic fragment. This is a nice illustration
-of the idea of small models. (Maybe even the lower bound proof.)
-
+Lower and the upper bound. Finite model property
 
 Day 2
 
 Lecture 3 (IEP): The two-variable fragment
 
 Scott normal form and re-writing.
-The small model property and upper complexity bound
+The small model property and upper complexity bound (lower bound
+   inherited from Monadic Fragment (day 1).
 
+Lecture 4 (BB): The lower bound for the two-variable fragment
 
-Lecture 3 (BB): The lower bound for the two-variable fragment
-
-Tilings.
-The proof.
-
+ExpTime upper bound for GF2.
+Tree models, unravelling, alternating Turing machines 
 
 Day 3
 
@@ -46,11 +43,9 @@ Historical notes and relation to the two-variable fragment.
 
 Lecture 6 (BB): The guarded fragment
 
-Normal forms 
-The basic decision procedure
-Upper complexity bounds
-The finite model property (summary of approaches).
-
+Normal forms
+Upper complexity bounds for GF (generalization from Lecture 4).
+The finite model property via the probabilistic construction.
 
 Day 4
 
